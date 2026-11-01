@@ -14,60 +14,35 @@ struct ContentView: View {
         ZStack {
             Color(.black)
             
-            Image("reels-background")
-                .resizable()
-                .scaledToFit()
+            SlotMachineBackground()
             
             VStack(spacing: 100) {
                 HStack(spacing: 150) {
                     VStack(spacing: 20) {
-                        Image("slot-cherries")
-                        Image("slot-cherries")
-                        Image("slot-cherries")
+                        Image("cherry")
+                        Image("cherry")
+                        Image("cherry")
                     }
                     VStack(spacing: 20) {
-                        Image("slot-cherries")
-                        Image("slot-cherries")
-                        Image("slot-cherries")
+                        Image("cherry")
+                        Image("cherry")
+                        Image("cherry")
                     }
                     VStack(spacing: 20) {
-                        Image("slot-cherries")
-                        Image("slot-cherries")
-                        Image("slot-cherries")
+                        Image("cherry")
+                        Image("cherry")
+                        Image("cherry")
                     }
                 }
                 
                 HStack(spacing: 300) {
-                    VStack(spacing: 20) {
-                        Text("BET")
-                            .font(.headline)
-                            .foregroundColor(.yellow)
-                        Text("0")
-                            .font(.headline)
-                            .foregroundColor(.yellow)
-                    }
-                    
-                    VStack(spacing: 20) {
-                        Text("WIN")
-                            .font(.headline)
-                            .foregroundColor(.yellow)
-                        Text("0")
-                            .font(.headline)
-                            .foregroundColor(.yellow)
-                    }
-                    
-                    VStack(spacing: 20) {
-                        Text("CREDITS")
-                            .font(.headline)
-                            .foregroundColor(.yellow)
-                        Text("0")
-                            .font(.headline)
-                            .foregroundColor(.yellow)
-                    }
+                    InfoElementView(title: "BET", value: 0)
+                    InfoElementView(title: "WIN", value: 0)
+                    InfoElementView(title: "CREDITS", value: 0)
                 }
                 
-                Button("PLAY") {
-                    print("Playing!")
+                PlayButton(imageName: "play") {
+                    print("Button pressed")
                 }
             }
         }
