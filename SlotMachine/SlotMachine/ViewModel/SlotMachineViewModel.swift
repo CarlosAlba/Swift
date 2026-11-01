@@ -16,7 +16,7 @@ final class SlotMachineViewModel: ObservableObject {
     @Published private(set) var results: [SlotSymbol] = [
         .cherry, .diamond, .seven
     ]
-    @Published private var isSpinning = false
+    @Published var isSpinning = false
     @Published var winningSymbol: SlotSymbol?
     @Published var winAmount = 0
     @Published var showOutofCreditsAlert = false

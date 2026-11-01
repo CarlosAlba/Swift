@@ -16,18 +16,26 @@ struct ContentView: View {
             
             SlotMachineBackground()
             
-            VStack(spacing: 100) {
-                HStack(spacing: 150) {
-
+            VStack() {
+                HStack(alignment: .center, spacing: 50) {
+                    ForEach(viewModel.reels.indices, id: \.self) { index in
+                        SlotReelView(
+                            symbols: viewModel.reels[index],
+                            isSpinning: viewModel.isSpinning,
+                            stopDelay: Double(index) * 0.5
+                        )
+                    }
                 }
+                .offset(y: 35)
                 
-                HStack(spacing: 300) {
+                HStack(spacing: 180) {
                     InfoElementView(title: "BET", value: viewModel.bet)
                     InfoElementView(title: "WIN", value: viewModel.lastWin)
                     InfoElementView(title: "CREDITS", value: viewModel.credits)
                 }
+                .offset(y: 35)
                 
-                HStack() {
+                HStack(spacing: 50) {
                     BetButton(bet: viewModel.bet) {
                         viewModel.increaseBet()
                     }
@@ -35,7 +43,10 @@ struct ContentView: View {
                     PlayButton(imageName: "play") {
                         viewModel.spin()
                     }
+                    .offset(y: 40)
+                    .disabled(viewModel.isSpinning)
                 }
+                .offset(x: -90)
             }
             .padding()
         }
