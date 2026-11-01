@@ -29,11 +29,11 @@ struct ContentView: View {
                 
                 HStack() {
                     BetButton(bet: viewModel.bet) {
-                        print("bet increase")
+                        viewModel.increaseBet()
                     }
                     
                     PlayButton(imageName: "play") {
-                        print("Button pressed")
+                        viewModel.spin()
                     }
                 }
             }
