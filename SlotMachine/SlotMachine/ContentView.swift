@@ -37,6 +37,25 @@ struct ContentView: View {
                     }
                 }
             }
+            .padding()
+        }
+        .alert(
+            "Out of Credits",
+            isPresented: $viewModel.showOutofCreditsAlert
+        ) {
+            Button("OK", role: .cancel) {}
+        } message: {
+            Text("You don't have enough credits to spin")
+        }
+        .alert(
+            "Congratulations",
+            isPresented: $viewModel.showWinningAlert
+        ) {
+            Button("Awesome", role: .cancel) {}
+        } message: {
+            if let symbol = viewModel.winningSymbol {
+                Text("Three \(symbol.imageName) symbols! You won \(viewModel.winAmount) credits!")
+            }
         }
     }
 }
