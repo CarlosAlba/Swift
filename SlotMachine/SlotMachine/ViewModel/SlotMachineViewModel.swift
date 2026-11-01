@@ -105,6 +105,8 @@ final class SlotMachineViewModel: ObservableObject {
                 winAmount = payout
                 
                 SoundManager.shared.playWin()
+                
+                showWinningAlert = true
             } else {
                 SoundManager.shared.playLose()
             }
