@@ -10,5 +10,7 @@
  */
 
 struct GameEngine {
-    
+    // TODO: random function fot symbols
+    // TODO: Calculation of multiplier
+    // TODO: Calculation of Payouts
 }

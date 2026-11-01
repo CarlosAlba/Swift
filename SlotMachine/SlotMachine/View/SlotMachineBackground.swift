@@ -12,7 +12,7 @@ struct SlotMachineBackground: UIViewRepresentable {
     
     func makeUIView(context: Context) -> UIImageView {
         let imageView = UIImageView(
-            image: UIImage(named: "reel-background")
+            image: UIImage(named: "reels-background")
         )
         
         imageView.contentMode = .scaleAspectFit

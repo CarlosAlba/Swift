@@ -18,31 +18,23 @@ struct ContentView: View {
             
             VStack(spacing: 100) {
                 HStack(spacing: 150) {
-                    VStack(spacing: 20) {
-                        Image("cherry")
-                        Image("cherry")
-                        Image("cherry")
-                    }
-                    VStack(spacing: 20) {
-                        Image("cherry")
-                        Image("cherry")
-                        Image("cherry")
-                    }
-                    VStack(spacing: 20) {
-                        Image("cherry")
-                        Image("cherry")
-                        Image("cherry")
-                    }
+
                 }
                 
                 HStack(spacing: 300) {
-                    InfoElementView(title: "BET", value: 0)
-                    InfoElementView(title: "WIN", value: 0)
-                    InfoElementView(title: "CREDITS", value: 0)
+                    InfoElementView(title: "BET", value: viewModel.bet)
+                    InfoElementView(title: "WIN", value: viewModel.lastWin)
+                    InfoElementView(title: "CREDITS", value: viewModel.credits)
                 }
                 
-                PlayButton(imageName: "play") {
-                    print("Button pressed")
+                HStack() {
+                    BetButton(bet: viewModel.bet) {
+                        print("bet increase")
+                    }
+                    
+                    PlayButton(imageName: "play") {
+                        print("Button pressed")
+                    }
                 }
             }
         }
