@@ -103,6 +103,10 @@ final class SlotMachineViewModel: ObservableObject {
                 
                 winningSymbol = firstSymbol
                 winAmount = payout
+                
+                SoundManager.shared.playWin()
+            } else {
+                SoundManager.shared.playLose()
             }
             
             isSpinning = false

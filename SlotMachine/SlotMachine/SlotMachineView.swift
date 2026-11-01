@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  SlotMachineView.swift
 //  SlotMachine
 //
 //  Created by Alfredo Alba on 11/1/26.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct SlotMachineView: View {
     @StateObject private var viewModel = SlotMachineViewModel()
     
     var body: some View {
@@ -26,7 +26,7 @@ struct ContentView: View {
                         )
                     }
                 }
-                .offset(y: 35)
+                .offset(y: 25)
                 
                 HStack(spacing: 180) {
                     InfoElementView(title: "BET", value: viewModel.bet)
@@ -41,9 +41,10 @@ struct ContentView: View {
                     }
                     
                     PlayButton(imageName: "play") {
+                        SoundManager.shared.playSpin()
                         viewModel.spin()
                     }
-                    .offset(y: 40)
+                    .offset(y: 35)
                     .disabled(viewModel.isSpinning)
                 }
                 .offset(x: -90)
@@ -72,5 +73,5 @@ struct ContentView: View {
 }
 
 #Preview(traits: .landscapeLeft) {
-    ContentView()
+    SlotMachineView()
 }
